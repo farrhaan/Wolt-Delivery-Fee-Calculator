@@ -1,0 +1,52 @@
+$break-mobile-portrait: 500px;
+$break-mobile-small: 639px;
+$break-mobileS: 700px;
+$break-tablet-mini: 849px;
+$break-tablet: 1024px;
+$break-tablet-medium: 1180px;
+$break-small-laptop: 1366px;
+
+// media query mixins
+@mixin respond-to($media) {
+    @if $media ==mobile-portrait {
+        @media only screen and (max-width: $break-mobile-portrait) {
+            @content;
+        }
+    }
+
+    @if $media ==mobile-small {
+        @media only screen and (max-width: $break-mobile-small) {
+            @content;
+        }
+    }
+
+    @if $media ==mobileS {
+        @media only screen and (max-width: $break-mobileS) {
+            @content;
+        }
+    }
+
+    @else if $media ==tablet-mini {
+        @media only screen and (max-width: $break-tablet-mini) {
+            @content;
+        }
+    }
+
+    @else if $media ==tablet {
+        @media only screen and (max-width: $break-tablet) {
+            @content;
+        }
+    }
+
+    @else if $media ==laptop-screen {
+        @media only screen and (max-width: $break-small-laptop) {
+            @content;
+        }
+    }
+
+    @else if $media ==tablet-medium {
+        @media only screen and (max-width: $break-tablet-medium) {
+            @content;
+        }
+    }
+}

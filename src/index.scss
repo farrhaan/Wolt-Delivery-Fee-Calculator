@@ -1,0 +1,14 @@
+@import "../src/Components/components.scss";
+@import "./styles/responsive.scss";
+
+body {
+    margin: 0;
+    font-family: "Omnes", serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+h1 {
+    font-family: "Coiny", system-ui;
+    margin: 0;
+}

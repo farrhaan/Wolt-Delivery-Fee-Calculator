@@ -1,0 +1,9 @@
+@import '../../styles/responsive.scss';
+
+.btn {
+    color: red;
+
+    @include respond-to(tablet-mini) {
+        color: green;
+    }
+}
