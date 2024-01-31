@@ -33,6 +33,11 @@
         }
     }
 
+    &__output {
+        font-size: 18px;
+        margin: 20px 0;
+    }
+
     .MuiTextField-root {
         width: 250px !important;
         margin-top: 25px;
@@ -65,18 +70,4 @@
     .MuiInputLabel-root {
         color: white !important;
     }
-
-    // .MuiInputBase-input {
-    //     border-radius: 6px !important;
-    //     background-color: transparent !important;
-    //     transition: all 0.34s;
-
-    //     &:focus {
-    //         background-color: black !important;
-    //     }
-
-    //     &:focus>.MuiInputAdornment-root {
-    //         background: red !important;
-    //     }
-    // }
 }
