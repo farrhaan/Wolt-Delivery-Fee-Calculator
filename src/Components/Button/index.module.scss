@@ -1,0 +1,18 @@
+@import '../../styles/responsive.scss';
+@import '../../styles/constants.scss';
+
+.btn {
+    width: 250px;
+    border-radius: 33px;
+    margin-top: 30px;
+    padding: 10px 0;
+    color: #00131B;
+    background-color: $mainColor;
+    font-size: 24px;
+    font-weight: 600;
+
+    &:hover {
+        cursor: pointer;
+        transform: scale(1.01);
+    }
+}

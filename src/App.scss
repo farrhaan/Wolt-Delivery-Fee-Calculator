@@ -1,13 +1,56 @@
-/* main color: #00c2e8 */
-.App {
-  background-color: black;
+@import "./styles/responsive.scss";
+@import './styles/constants.scss';
+
+.home {
   color: white;
   height: 100vh;
   text-align: center;
+  display: flex;
+
+  @include respond-to(mobile-small) {
+    height: auto;
+    flex-direction: column;
+  }
+
+  &__left {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    // padding-top: 110px;
+    background-color: black;
+    width: 40vw;
+
+    @include respond-to(tablet-mini) {
+      // padding-top: 80px;
+    }
+
+    @include respond-to(mobile-small) {
+      width: auto;
+      // padding-top: 20px;
+    }
+  }
+
+  &__right {
+    background-image: url("./Assets/bgImage.jpeg");
+    min-width: 500px;
+    width: 60vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    @include respond-to(tablet-mini) {
+      min-width: 400px;
+    }
+
+    @include respond-to(mobile-small) {
+      width: auto;
+      min-width: unset;
+      padding: 30px 0px;
+    }
+  }
 }
 
 @font-face {
   font-family: "Omnes";
-  src: local("Omnes-Regular") url("./Fonts/Omnes-Regular.ttf")
-    format("truetype");
+  src: local("Omnes-Regular") url("./Fonts/Omnes-Regular.ttf") format("truetype");
 }

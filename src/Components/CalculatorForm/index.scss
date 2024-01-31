@@ -1,0 +1,82 @@
+@import '../../styles/responsive.scss';
+@import '../../styles/constants.scss';
+
+.cForm {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 450px;
+    min-height: 600px;
+    max-height: 850px;
+    border-radius: 33px;
+    background: rgba(0, 19, 27, 0.94);
+    backdrop-filter: blur(3.5px);
+
+    @include respond-to(tablet-mini) {
+        width: 380px;
+    }
+
+    @include respond-to(mobile-small) {
+        width: 90%;
+    }
+
+    &__heading {
+        color: white;
+        font-size: 24px;
+        font-weight: 600;
+        margin: 0 0 20px;
+
+        @include respond-to(mobile-small) {
+            font-weight: 400;
+            font-size: 22px;
+        }
+    }
+
+    .MuiTextField-root {
+        width: 250px !important;
+        margin-top: 25px;
+    }
+
+    .MuiOutlinedInput-root {
+        color: white !important;
+        background: transparent !important;
+
+        &:focus-within {
+            background: black !important;
+
+        }
+    }
+
+    .MuiInputAdornment-root {
+        p {
+            color: white !important;
+        }
+
+        button svg {
+            fill: white !important
+        }
+    }
+
+    .MuiOutlinedInput-notchedOutline {
+        border-color: $mainColor !important;
+    }
+
+    .MuiInputLabel-root {
+        color: white !important;
+    }
+
+    // .MuiInputBase-input {
+    //     border-radius: 6px !important;
+    //     background-color: transparent !important;
+    //     transition: all 0.34s;
+
+    //     &:focus {
+    //         background-color: black !important;
+    //     }
+
+    //     &:focus>.MuiInputAdornment-root {
+    //         background: red !important;
+    //     }
+    // }
+}
