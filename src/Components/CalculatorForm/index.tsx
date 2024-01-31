@@ -14,6 +14,22 @@ export default function CalculatorForm() {
     const [items, setItems] = useState("");
     const [time, setTime] = useState<Date | null>(null);
     const [deliveryFee, setDeliveryFee] = useState("");
+    const [error, setError] = useState(false);
+
+    const validateInputs = (cartValueV: string, deliveryDistanceV: string, numberOfItemsV: string, timeStamp: Date | null) => {
+        console.log(isNaN(Number(cartValueV)) || isNaN(Number(deliveryDistanceV)) || isNaN(Number(numberOfItemsV)));
+        console.log(isNaN(Number(timeStamp?.getDay())), isNaN(Number(timeStamp?.getHours())))
+        if (!(cartValueV || deliveryDistanceV || numberOfItemsV || timeStamp)) {
+            setError(true)
+        } else if ((isNaN(Number(cartValueV)) || isNaN(Number(deliveryDistanceV)) || isNaN(Number(numberOfItemsV)))) {
+            setError(true)
+        } else if (isNaN(Number(timeStamp?.getDay())) || isNaN(Number(timeStamp?.getHours()))) {
+            setError(true)
+        } else {
+            setError(false);
+            calculateDeliveryFee(Number(cartValue), Number(distance), Number(items), timeStamp)
+        }
+    }
 
     const calculateDeliveryFee = (cartValue: number, deliveryDistance: number, numberOfItems: number, timeStamp: Date | null) => {
         // Rule 1: Small order surcharge
@@ -46,8 +62,7 @@ export default function CalculatorForm() {
             deliveryFee *= 1.2;
             deliveryFee = Math.min(deliveryFee, 15); // Cannot exceed 15€
         }
-
-        console.log(deliveryFee.toFixed(2));
+        console.log(deliveryFee)
         setDeliveryFee(deliveryFee.toFixed(2))
     }
 
@@ -85,13 +100,16 @@ export default function CalculatorForm() {
                     }}
                 />
             </LocalizationProvider>
+            {error && <div className='cForm__error'>
+                Invalid Input
+            </div>}
             <Button text="Calculate" handleOnClick={() => {
                 const dateTime = time ? new Date(time?.toISOString()) : null;
-                calculateDeliveryFee(Number(cartValue), Number(distance), Number(items), dateTime)
+                validateInputs(cartValue, distance, items, dateTime);
             }
             }
             />
-            {deliveryFee && <div className='cForm__output'>
+            {deliveryFee && !error && <div className='cForm__output'>
                 Delivery Fee: €{deliveryFee}
             </div>}
         </div>

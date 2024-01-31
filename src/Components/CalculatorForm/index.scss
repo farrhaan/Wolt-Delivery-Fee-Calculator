@@ -38,6 +38,27 @@
         margin: 20px 0;
     }
 
+    &__error {
+        font-size: 18px;
+        margin: 10px 0 -10px;
+        color: yellow;
+        animation: errorAnimation 2s infinite;
+    }
+
+    @keyframes errorAnimation {
+        0% {
+            opacity: 0
+        }
+
+        50% {
+            opacity: 100
+        }
+
+        100% {
+            opacity: 0;
+        }
+    }
+
     .MuiTextField-root {
         width: 250px !important;
         margin-top: 25px;
